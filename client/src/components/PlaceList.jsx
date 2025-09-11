@@ -41,7 +41,7 @@ import { Link,Circle } from 'lucide-react';
             <div key={place.eid} className="flex flex-row items-start m-10 mx-auto w-300">
             <div className="w-100 h-80 overflow-hidden rounded-4xl flex-shrink-0">
                 <img src={place.photos[0]} 
-                alt="" 
+                alt={place.title} 
                 className="w-full h-full object-cover rounded-4xl" />
             </div>
             <div className="flex-1 ml-5">
@@ -51,11 +51,12 @@ import { Link,Circle } from 'lucide-react';
                 <p className="text-gray-500">
                     {truncateText(place.description, 100)}
                 </p>
-                <a 
-                href={place.url}
+                <a href={place.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 >
                     <p className="underline text-blue-400">อ่านต่อ</p>
-                    </a>
+                </a>
                 <div className="flex gap-2">
                 <span className="text-gray-600">หมวด</span>
                 {place.tags.map((tag, index) => (
@@ -80,9 +81,9 @@ import { Link,Circle } from 'lucide-react';
             ))}
                 </div>
                 <div className="flex flex-row w-28 h-25 gap-5 mt-10">
-                    <img src={place.photos[1]} alt="" className="w-full h-full object-cover rounded-xl"/>
-                    <img src={place.photos[2]} alt="" className="w-full h-full object-cover rounded-xl"/>
-                    <img src={place.photos[3]} alt="" className="w-full h-full object-cover rounded-xl"/>
+                    <img src={place.photos[1]} alt={place.title} className="w-full h-full object-cover rounded-xl"/>
+                    <img src={place.photos[2]} alt={place.title} className="w-full h-full object-cover rounded-xl"/>
+                    <img src={place.photos[3]} alt={place.title} className="w-full h-full object-cover rounded-xl"/>
                 </div>
             </div>
             <a href="#" 
@@ -92,7 +93,7 @@ import { Link,Circle } from 'lucide-react';
                 copyToClipboard(place.url);
               }}
             >
-            <Circle color="#27DDF5" size={50} className="absolute right-22.5 top-50"/>
+            <Circle color="#27DDF5" size={50} className="absolute right-[90px] top-[200px]"/>
             <Link color="#27DDF5" size={30} className="absolute right-25 top-52.5"/>
             </a>
             
