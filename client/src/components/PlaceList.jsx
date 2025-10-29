@@ -10,7 +10,7 @@ import { Link,Circle } from 'lucide-react';
         const fetchPlace = async() => {
             try {
                 const result = await axios.get(
-                    `http://localhost:4001/trips?keywords=${encodeURIComponent(filter)}`
+                    `https://react-tourist-attraction-mini-proje-zeta.vercel.app/trips?keywords=${encodeURIComponent(filter)}`
                 );
                 setPlaceList(result.data.data)
             } catch (error) {
