@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link,Circle } from 'lucide-react';
+import { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
     function PlaceList ({filter,setFilter}) {
 
@@ -29,14 +31,32 @@ import { Link,Circle } from 'lucide-react';
 
       function copyToClipboard(url) {
         navigator.clipboard.writeText(url).then(() => {
-          alert("Copied: " + url);
+            toast.success("Copied: " + url);
         }).catch(err => {
-          console.error("Failed to copy: ", err);
+            toast.error("Failed to copy: ", err);
         });
       }
 
     return (
         <>
+        <Toaster
+        toastOptions={{
+            success: {
+            style: {
+                background: "#4ade80",
+                color: "#ffffff",
+            },
+            },
+            error: {
+            style: {
+                background: "#f87171",
+                color: "#fff",
+            },
+            },
+            duration: 2000,
+        }}
+        position="bottom-right"
+        />
         {placeList.map((place) => (
             <div key={place.eid} className="flex flex-row items-start m-10 mx-auto w-300">
             <div className="w-100 h-80 overflow-hidden rounded-4xl flex-shrink-0">
